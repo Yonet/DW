@@ -72,8 +72,36 @@ brew install node
 npm install -g yo bower grunt-cli gulp
 							</code></pre>
 						</li>
+						<li><a href="http://docs.mongodb.org/manual/installation/" target="_blank">MongoDB</a>
+							<pre><code data-trim contenteditable>
+brew update
+brew install mongodb
+//or
+brew install mongodb --with-openssl
+							</code></pre>
+						</li>
 
 					</ul>
+				</section>
+				<section>
+					<h2>Running MongoDB for the first time</h2>
+					<p>Create a /data/db directory</p>
+					<pre><code data-trim contenteditable>
+mkdir -p /data/db
+					</code></pre>
+					<p>Make sure you have read/write access to the data directory.</p>
+					<pre><code data-trim contenteditable>
+sudo chmod 777 /data/db
+					</code></pre>
+					<p>To run the database</p>
+					<pre><code data-trim contenteditable>
+mongod
+					</code></pre>
+					<<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/#id7" target="_blank">More info.</a>
+					<aside class="notes">
+						ls la to see the permission. The r, w, and x specify the read, write, and execute access, respectively.
+					</aside>
+
 				</section>
 
 				<section>

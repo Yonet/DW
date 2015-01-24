@@ -65,7 +65,7 @@
 						<li><a href="http://nodejs.org/" target="_blank">Node.js</a> website/
 							<pre><code data-trim contenteditable>
 brew install node
-						</code></pre>
+							</code></pre>
 						</li>
 						<li><a href="http://yeoman.io/learning/index.html" target="_blank">Yeoman</a>
 							<pre><code data-trim contenteditable>
@@ -155,6 +155,75 @@ grunt serve
 				<section>
 					<h2><a href="https://github.com/DaftMonk/generator-angular-fullstack#heroku">Deploying to Heroku</a></h2>
 				</section>
+				
+				
+				<<section>
+					<section>
+						<h2>NodeJS</h2>
+					</section>
+					<section>
+						<h2>Core Modules</h2>
+						<ul>
+							<li>
+								<a href="http://nodejs.org/api/http.html#http_http" target="_blank">http</a>
+							</li>
+							<li>
+								<a href="http://nodejs.org/api/util.html" target="_blank">util</a>
+							</li>
+							<li>
+								<a href="http://nodejs.org/api/querystring.html" target="_blank">querystring</a>
+							</li>
+							<li>
+								<a href="http://nodejs.org/api/url.html" target="_blank">url</a>
+							</li>
+							<li>
+								<a href="http://nodejs.org/api/fs.html" target="_blank">fs</a>
+							</li>
+						</ul>
+						<aside class="notes">
+						Unlike other programming technologies, Node.js doesn’t come with a heavy standard library. The core modules of node.js are a bare minimum, and the rest can be cherry-picked via the NPM registry.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Non Core Modules</h2>
+						<ul>
+							<li><a href="https://npmjs.org" target="_blank">NPM</a></li>
+							<li><a href="https://github.com/joyent/node/wiki/Modules" target="_blank">GitHub hosted list for Node.js modules maintained by Joyent</a></li>
+							<li><a href="http://nodetoolbox.com/" target="_blank">Node Tool Box</a></li>
+							<li><a href="http://eirikb.github.com/nipster/" target="_blank">Nipster</a></li>
+							<li><a href="http://nodejsmodules.org" target="_blank">NodeJsModules.org</a></li>
+						</ul>
+					</section>
+					
+					<section>
+						<h2>http</h2>
+						<pre><code data-trim contenteditable>
+var http = require('http');
+var server = http.createServer(function (req, res) {
+<!-- To set the right header and status code, use the following: -->
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+<!-- To output Hello World with the line end symbol, use -->
+  res.end('Hello World\n');
+});
+						</code></pre>
+						<aside class="notes">This snippet creates a server with a callback function which contains the response handler code.
+						The req and res arguments have all the information about a given HTTP request and response correspondingly.
+						</aside>
+					</section>
+
+					<section>
+					<h2>Requiring files with Node</h2>
+					<p>In addition, for including files, it’s possible to use longer statements with __dirname and path.join()—for example,require(path.join(__dirname, ,'routes', 'messages'));.Thisisarecommendedapproach,because path.join() will produce a path with valid slashes (forward or backward depending on your OS).</p>
+					<p>If require() points to a folder, Node.js attempts to read the index.js file in that folder.</p>
+					<p>__dirname is an absolute path to the file in which the global variable is called, whereas process.cwd is an absolute path to the process that runs the script. The latter might not be the same as the former if we started the program from adifferentfolder,suchas$ node ./code/program.js.</p>
+				</section>
+				</section>
+
+				
+
+
+
 
 				<section>
 
@@ -187,7 +256,7 @@ grunt serve
 							<li><a href="https://github.com/jmcunningham/AngularJS-Learning" target="_blank">AngularJS learning Github Repo</a></li>
 						</ul>
 					</section>
-					
+
 					<section>
 						<h2>Node Resources</h2>
 						<ul>

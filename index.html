@@ -97,6 +97,10 @@ sudo chmod 777 /data/db
 					<pre><code data-trim contenteditable>
 mongod
 					</code></pre>
+					<p>To access the database, run mongo in a new terminal window</p>
+					<pre><code data-trim contenteditable>
+mongo
+					</code></pre>
 					<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/#id7" target="_blank">More info.</a>
 					<aside class="notes">
 						ls la to see the permission. The r, w, and x specify the read, write, and execute access, respectively.
@@ -244,6 +248,41 @@ node-debug server.js // w/ debugger
 					
 				</section>
 				<!-- /Express -->
+				<!-- MongoDB -->
+				<section>
+					<section>
+						<h2>MongoDB</h2>
+						<p>NoSQL Document Database</p>
+						<ul>
+							<li>Dynamic Schema</li>
+							<li>Binary JSON</li>
+						</ul>
+						<p>More than that...</p>
+						<aside class="notes">
+							Full Index support, MapReduce and Aggregation, Scale and availablity...
+						</aside>
+
+					</section>
+
+					<section>
+						<h2><a href="http://mongoosejs.com/" target="_blank">Mongoose</a></h2>
+						<p>Elegant mongodb object modeling for node.js</p>
+						<pre><code data-trim contenteditable>
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+
+var Cat = mongoose.model('Cat', { name: String });
+
+var kitty = new Cat({ name: 'Zildjian' });
+kitty.save(function (err) {
+  if (err) // ...
+  console.log('meow');
+});
+						</code></pre>
+					</section>
+					
+				</section>
+				<!-- /MongoDB -->
 
 				
 

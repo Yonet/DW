@@ -268,6 +268,9 @@ node-debug server.js // w/ debugger
 						<h2><a href="http://mongoosejs.com/" target="_blank">Mongoose</a></h2>
 						<p>Elegant mongodb object modeling for node.js</p>
 						<pre><code data-trim contenteditable>
+npm install mongoose
+						</code></pre>
+						<pre><code data-trim contenteditable>
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 
@@ -279,6 +282,45 @@ kitty.save(function (err) {
   console.log('meow');
 });
 						</code></pre>
+					</section>
+					<section>
+						<p>Mongoose’s schema setup is defined by 3 types:</p>
+						<ul>
+							<li>Schema</li>
+							<li>Connection</li>
+							<li>Model</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Schema</h2>
+						<p>A Schema is an object that defines the structure of any documents that will be stored in your MongoDB collection; it enables you to define types and validators for all of your data items.</p>
+					</section>
+					<section>
+						<h2>Connection</h2>
+						<p>A Connection is a fairly standard wrapper around a database connection.</p>
+					</section>
+					<section>
+						<h2>Model</h2>
+						<p>A Model is an object that gives you easy access to a named collection, allowing you to query the collection and use the Schema to validate any documents you save to that collection. It is created by combining a Schema, a Connection, and a collection name.</p>
+						<p>A document is an instantiation of a Model that is tied to a specific document in your collection.</p>
+					</section>
+					<section>
+					<pre><code data-trim contenteditable>
+var Mongoose = require('mongoose'); var myConnection = Mongoose.createConnection('localhost', 'mydatabase');
+
+var MySchema = new Mongoose.schema({ name : {
+    type : String,
+    default : 'Val',
+    enum : ['Val', 'Valeri', 'Valeri Karpov']
+  },
+created : {
+    type : Date,
+    default : Date.now
+  }
+}); var MyModel = myConnection.model('mycollection', MySchema);
+var myDocument = new MyModel({});
+					</code></pre>
+						
 					</section>
 					
 				</section>

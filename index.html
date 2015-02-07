@@ -57,7 +57,7 @@
 				</section>
 
 				<section>
-					<h2>What we will build</h2>
+					<h2><<a href="" target="_blank">What we will build</a></h2>
 				</section>
 				<section>
 					<h2>What you need to install</h2>
@@ -154,6 +154,7 @@ grunt serve
 							</code></pre>
 						</li>
 					</ul>
+					<aside class="notes">npm cache clean, bower cache clean</aside>
 				</section>
 
 				<section>
@@ -217,8 +218,8 @@ var server = http.createServer(function (req, res) {
 						</code></pre>
 						<h2>Launch</h2>
 						<pre><code data-trim contenteditable>
-node server.js       // w/o debugger
-node-debug server.js // w/ debugger
+node server      // w/o debugger
+node-debug server // w/ debugger
 						</code></pre>
 						<aside class="notes">This snippet creates a server with a callback function which contains the response handler code.
 						The req and res arguments have all the information about a given HTTP request and response correspondingly.
@@ -283,27 +284,36 @@ kitty.save(function (err) {
 });
 						</code></pre>
 					</section>
+
 					<section>
 						<p>Mongoose’s schema setup is defined by 3 types:</p>
 						<ul>
-							<li>Schema</li>
+							<li><<a href="http://mongoosejs.com/docs/guide.html" target="_blank"></a>Schema</li>
 							<li>Connection</li>
 							<li>Model</li>
 						</ul>
 					</section>
+
 					<section>
 						<h2>Schema</h2>
 						<p>A Schema is an object that defines the structure of any documents that will be stored in your MongoDB collection; it enables you to define types and validators for all of your data items.</p>
+						<aside class="notes">
+							Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.
+						</aside>
 					</section>
+
 					<section>
 						<h2>Connection</h2>
 						<p>A Connection is a fairly standard wrapper around a database connection.</p>
 					</section>
+
 					<section>
 						<h2>Model</h2>
 						<p>A Model is an object that gives you easy access to a named collection, allowing you to query the collection and use the Schema to validate any documents you save to that collection. It is created by combining a Schema, a Connection, and a collection name.</p>
 						<p>A document is an instantiation of a Model that is tied to a specific document in your collection.</p>
+						<aside>A model is a class with which we construct documents. We can access all of the kitten documents through our Kitten model.</aside>
 					</section>
+
 					<section>
 					<pre><code data-trim contenteditable>
 var Mongoose = require('mongoose'); var myConnection = Mongoose.createConnection('localhost', 'mydatabase');
@@ -317,15 +327,45 @@ created : {
     type : Date,
     default : Date.now
   }
-}); var MyModel = myConnection.model('mycollection', MySchema);
+}); 
+var MyModel = myConnection.model('mycollection', MySchema);
 var myDocument = new MyModel({});
 					</code></pre>
 					<aside class='notes'>
 					MongoDB uses named collections of arbitrary objects, and a Mongoose JS Model abstracts away this layer. Because of this, we don’t have to deal with tasks such as asynchronously telling MongoDB to switch to that collection, or work with the annoying createFromHexString function.
 						
 					</aside>
-						
 					</section>
+					<section>
+						<p>Functions added to the methods property of a schema get compiled into the Model prototype and exposed on each document instance</p>
+						<pre><code data-trim contenteditable>
+// NOTE: methods must be added to the schema before compiling it with mongoose.model()
+kittySchema.methods.speak = function () {
+  var greeting = this.name
+    ? "Meow name is " + this.name
+    : "I don't have a name"
+  console.log(greeting);
+}
+
+var Kitten = mongoose.model('Kitten', kittySchema)
+						</code></pre>
+					</section>
+
+					<section>
+						<p>To find all of our kittens:</p>
+						<pre><code data-trim contenteditable>
+Kitten.find(function (err, kittens) {
+  if (err) return console.error(err);
+  console.log(kittens)
+});
+						</code></pre>
+						<p>To find specific ones: </p>
+						<pre><code data-trim contenteditable>
+Kitten.find({ name: /^Fluff/ }, callback);
+						</code></pre>
+					</section>
+
+
 					<section>
 						<h2>Best Practices</h2>
 						<p>1 schema = 1 file</p>
@@ -336,6 +376,11 @@ var myDocument = new MyModel({});
 					
 				</section>
 				<!-- /MongoDB -->
+
+				<section>
+					<h2><a href="http://passportjs.org/" target="_blank">Passport</a></h2>
+					<p>An authentication middleware for Node.js which supports authentication using a username and password, Facebook, Twitter, and more.</p>
+				</section>
 
 				
 

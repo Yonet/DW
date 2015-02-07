@@ -320,7 +320,18 @@ created : {
 }); var MyModel = myConnection.model('mycollection', MySchema);
 var myDocument = new MyModel({});
 					</code></pre>
+					<aside class='notes'>
+					MongoDB uses named collections of arbitrary objects, and a Mongoose JS Model abstracts away this layer. Because of this, we don’t have to deal with tasks such as asynchronously telling MongoDB to switch to that collection, or work with the annoying createFromHexString function.
 						
+					</aside>
+						
+					</section>
+					<section>
+						<h2>Best Practices</h2>
+						<p>1 schema = 1 file</p>
+						<aside class="notes">A schema should never be declared in app.js, and you should never have multiple schemas in a single file (even if you intend to nest one schema in another). While it is often expedient to inline everything into app.js, not keeping schemas in separate files makes things more difficult in the long run. Separate files lowers the barrier to entry for understanding your code base and makes tracking changes much easier.
+						Mongoose can’t handle multi-level population yet, and populated fields are not Documents. Nesting schemas is helpful but it’s an incomplete solution. Design your schemas accordingly.
+						</aside>
 					</section>
 					
 				</section>
@@ -377,6 +388,7 @@ var myDocument = new MyModel({});
 				<section>
 					<h1>THE END</h1>
 					<h3>BY <a href="https://www.linkedin.com/in/aysegulyonet/" target="_blank">Aysegul Yonet</a> / aysegulyonet@gmail.com</h3>
+					<p>Come every Monday with your questions to <a href="http://www.meetup.com/Women-Who-Code-SF/events/219964432/" target="_blank">Women Who Code/</a><a href="http://www.meetup.com/Girl-Develop-It-San-Francisco/events/219890381/" target="_blank">Girl Develop It</a> Meetups @HackReactor</p>
 				</section>
 				<!-- /end -->
 

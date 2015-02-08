@@ -57,7 +57,7 @@
 				</section>
 
 				<section>
-					<h2><<a href="http://bit.ly/oscars-repo" target="_blank">What we will build</a></h2>
+					<h2><a href="http://bit.ly/oscars-repo" target="_blank">What we will build</a></h2>
 				</section>
 				<section>
 					<h2>What you need to install</h2>
@@ -138,7 +138,7 @@ mkdir my-new-project && cd $_
 yo angular-fullstack [app-name]
 							</code></pre>
 						</li>
-						<li>Install your dependencies.
+						<li>Generator will install your dependencies.
 							<pre><code data-trim contenteditable>
 npm install && bower install
 							</code></pre>
@@ -154,12 +154,10 @@ grunt serve
 							</code></pre>
 						</li>
 					</ul>
-					<aside class="notes">npm cache clean, bower cache clean</aside>
+					<aside class="notes">npm cache clean, bower cache clean. Note the file structure.</aside>
 				</section>
 
-				<section>
-					<h2><a href="https://github.com/DaftMonk/generator-angular-fullstack#heroku">Deploying to Heroku</a></h2>
-				</section>
+				
 				
 				<!-- Node -->
 				<section>
@@ -218,8 +216,7 @@ var server = http.createServer(function (req, res) {
 						</code></pre>
 						<h2>Launch</h2>
 						<pre><code data-trim contenteditable>
-node server      // w/o debugger
-node-debug server // w/ debugger
+node server
 						</code></pre>
 						<aside class="notes">This snippet creates a server with a callback function which contains the response handler code.
 						The req and res arguments have all the information about a given HTTP request and response correspondingly.
@@ -229,7 +226,11 @@ node-debug server // w/ debugger
 
 					<section>
 						<h2>Requiring files with Node</h2>
-						<p>In addition, for including files, it’s possible to use longer statements with __dirname and path.join()—for example,require(path.join(__dirname, ,'routes', 'messages'));.Thisisarecommendedapproach,because path.join() will produce a path with valid slashes (forward or backward depending on your OS).</p>
+						<p>In addition, for including files, it’s possible to use longer statements with __dirname and path.join()—for example,
+						<pre><code data-trim contenteditable>
+require(path.join(__dirname, ,'routes', 'messages'));
+						</code></pre>
+						<p>This is a recommended approach,because path.join() will produce a path with valid slashes (forward or backward depending on your OS).</p>
 						<p>If require() points to a folder, Node.js attempts to read the index.js file in that folder.</p>
 						<p>__dirname is an absolute path to the file in which the global variable is called, whereas process.cwd is an absolute path to the process that runs the script. The latter might not be the same as the former if we started the program from adifferentfolder,suchas$ node ./code/program.js.</p>
 					</section>
@@ -243,12 +244,31 @@ node-debug server // w/ debugger
 						<h2>Express</h2>
 						<p>Enriches node’s native HTTP/HTTPS</p>
 					</section>
+
 					<section>
-						
+						<h2>Simple express server.</h2>
+						<pre><code data-trim contenteditable>
+var express = require(express);
+var app = express();
+
+app.get('/', function(req, res) {
+	res.sendFile(__dirname + '/client/index.html');
+});
+
+var server = app.listen(3000, function () {
+  var host = server.address().address
+  var port = server.address().port
+  console.log('Example app listening at http://%s:%s', host, port)
+});
+						</code></pre>
+						<pre><code data-trim contenteditable>
+node server
+						</code></pre>
 					</section>
 					
 				</section>
 				<!-- /Express -->
+
 				<!-- MongoDB -->
 				<section>
 					<section>
@@ -288,7 +308,7 @@ kitty.save(function (err) {
 					<section>
 						<p>Mongoose’s schema setup is defined by 3 types:</p>
 						<ul>
-							<li><<a href="http://mongoosejs.com/docs/guide.html" target="_blank"></a>Schema</li>
+							<li><a href="http://mongoosejs.com/docs/guide.html" target="_blank"></a>Schema</li>
 							<li>Connection</li>
 							<li>Model</li>
 						</ul>
@@ -316,7 +336,7 @@ kitty.save(function (err) {
 
 					<section>
 					<pre><code data-trim contenteditable>
-var Mongoose = require('mongoose'); var myConnection = Mongoose.createConnection('localhost', 'mydatabase');
+var Mongoose = require('mongoose'), myConnection = Mongoose.createConnection('localhost', 'mydatabase');
 
 var MySchema = new Mongoose.schema({ name : {
     type : String,
@@ -383,7 +403,11 @@ Kitten.find({ name: /^Fluff/ }, callback);
 				</section>
 
 				
-
+				<section>
+					<h2>Deploying your app.</h2>
+					<p><a href="https://github.com/DaftMonk/generator-angular-fullstack#heroku" target="_blank">Heroku</a></p>
+					<p><a href="https://github.com/DaftMonk/generator-angular-fullstack#openshift" target="_blank">OpenShift</a></p>
+				</section>
 
 
 				<!-- Resources -->

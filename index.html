@@ -58,6 +58,12 @@
 
 				<section>
 					<h2><a href="http://bit.ly/oscars-repo" target="_blank">What we will build</a></h2>
+					<p>Oscar Nominees voting Form</p>
+					<ul>
+						<li>Create a login</li>
+						<li>Vote for nominees</li>
+						<li>Submit and retrieve the votes from the database</li>
+					</ul>
 				</section>
 				<section>
 					<h2>What you need to install</h2>
@@ -422,6 +428,40 @@ db.users.find() //to list all the users.
 					<h2><a href="http://passportjs.org/" target="_blank">Passport</a></h2>
 					<p>An authentication middleware for Node.js which supports authentication using a username and password, Facebook, Twitter, and more.</p>
 				</section>
+
+				<!-- Angular -->
+				<section>
+					<section>
+						<h2>Angular</h2>
+					</section>
+					<section>
+						<h2><<a href="https://docs.angularjs.org/guide/services" target="_blank">Angular Services</a></h2>
+						<p>By Angular conventions, lowerCamelCase is used for factory names that won't be new'ed.</p>
+						<pre><code data-trim contenteditable>
+yo angular-fullstack:factory nomineesFactory
+						</code></pre>
+						<pre><code data-trim contenteditable>
+app.factory('nomineesFactory', [function(){
+  var nominees = {
+    categories:...
+  };
+  return nominees;
+}]);
+						</code></pre>
+					</section>
+					<section>
+						<p>To use the factory in your controller:</p>
+						<pre><code data-trim contenteditable>
+app.controller('MainCtrl', ['$scope','nomineesFactory',
+function($scope, nomineesFactory){
+	$scope.categories = nomineesFactory.categories;
+  ...
+)};
+						</code></pre>
+					</section>
+
+				</section>
+				<!-- Angular -->
 
 				
 				<section>

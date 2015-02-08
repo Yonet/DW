@@ -270,9 +270,14 @@ var server = app.listen(3000, function () {
 node server
 						</code></pre>
 					</section>
+					<section>
+						
+					</section>
 					
 				</section>
 				<!-- /Express -->
+
+
 
 				<!-- MongoDB -->
 				<section>
@@ -388,6 +393,16 @@ Kitten.find(function (err, kittens) {
 						<pre><code data-trim contenteditable>
 Kitten.find({ name: /^Fluff/ }, callback);
 						</code></pre>
+					</section>
+					<section>
+						<p>You can find the database info on "oscars/server/config/environment/development.js"</p>
+						<pre><code data-trim contenteditable>
+mongo
+use oscars-dev
+show collections //users, things
+db.users.find() //to list all the users.
+						</code></pre>
+						
 					</section>
 
 

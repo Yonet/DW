@@ -71,10 +71,10 @@
 
 				<section>
 					<h2><a href="http://bit.ly/oscars-repo" target="_blank">What we will build</a></h2>
-					<p>Oscar Nominees voting Form</p>
+					<p>Oscar Nominees Voting Form</p>
 					<ul>
-						<li>Create a login</li>
-						<li>Vote for nominees</li>
+						<li>Login</li>
+						<li>Voting for nominees</li>
 						<li>Create Schemas for our database</li>
 						<li>Submit and retrieve data from the database</li>
 					</ul>
@@ -279,7 +279,16 @@ var server = app.listen(3000, function () {
 						<pre><code data-trim contenteditable>
 node server
 						</code></pre>
+						<aside class="notes">
+Middleware is a function with access to the request object (req), the response object (res), and the next middleware in line in the request-response cycle of an Express application, commonly denoted by a variable named next. Middleware can:
+
+Execute any code.
+Make changes to the request and the response objects.
+End the request-response cycle.
+Call the next middleware in the stack.
+						</aside>
 					</section>
+
 					
 				</section>
 				<!-- /Express -->
@@ -351,9 +360,8 @@ kitty.save(function (err) {
 
 					<section>
 						<h2>Model</h2>
-						<p>A Model is an object that gives you easy access to a named collection, allowing you to query the collection and use the Schema to validate any documents you save to that collection. It is created by combining a Schema, a Connection, and a collection name.</p>
-						<!-- <p>A document is an instantiation of a Model that is tied to a specific document in your collection.</p> -->
-						<aside>A model is a class with which we construct documents. We can access all of the kitten documents through our Kitten model.</aside>
+						<p>A Model is an object that gives you easy access to a named collection, allowing you to query the collection and use the Schema to validate any documents you save to that collection.</p>
+						<aside class="notes">A model is a class with which we construct documents. We can access all of the kitten documents through our Kitten model.</aside>
 					</section>
 
 					<section>
@@ -458,14 +466,11 @@ db.users.find() //to list all the users.
 							<li>ngModel: Binding the view into the model.
 							</li>
 							<li>ngRepeat: instantiates a template once per item from a collection</li>
-
-
 						</ul>
 						<pre><code data-trim contenteditable>
 <input type="text" ng-model="userName"> //input value is bind to $scope.userName in the controller
 <div ng-repeat="(key, value) in myObj"> {{key}} - {{value.name}} </div>
 						</code></pre>
-
 
 					</section>
 

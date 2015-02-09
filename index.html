@@ -57,12 +57,26 @@
 				</section>
 
 				<section>
+					<h2>What is MEAN?</h2>
+					<ul>
+						<li><a href="http://www.mongodb.org/" target="_blank">MongoDB: NoSQL Database.</a></li>
+						<li><a href="http://expressjs.com/" target="_blank">Express: web framework for Node.js.</a></li>
+						<li><a href="https://angularjs.org/" target="_blank">AngularJS: HTML enhanced for web apps!</a></li>
+						<li><a href="http://nodejs.org/" target="_blank">Node: is a platform built on Google's V8 Engine.</a></li>
+					</ul>
+
+					<aside class="notes">Cons: You have to manage memory leaks, keep in mind CPU-bound computations off the event loop and be very careful with exception handling.
+					</aside>
+				</section>
+
+				<section>
 					<h2><a href="http://bit.ly/oscars-repo" target="_blank">What we will build</a></h2>
 					<p>Oscar Nominees voting Form</p>
 					<ul>
 						<li>Create a login</li>
 						<li>Vote for nominees</li>
-						<li>Submit and retrieve the votes from the database</li>
+						<li>Create Schemas for our database</li>
+						<li>Submit and retrieve data from the database</li>
 					</ul>
 				</section>
 				<section>
@@ -115,18 +129,13 @@ mongo
 				</section>
 
 				<section>
-					<h2>What is MEAN?</h2>
-					<ul>
-						<li><a href="http://www.mongodb.org/" target="_blank">Mongo DB</a></li>
-						<li><a href="http://expressjs.com/" target="_blank">Express</a></li>
-						<li><a href="https://angularjs.org/" target="_blank">AngularJS</a></li>
-						<li><a href="http://nodejs.org/" target="_blank">Node</a></li>
-					</ul>
-
-					<aside class="notes">
-					</aside>
+					<h2><a href="http://bit.ly/mean-no-generator" target="_blank">Mean Stack without generators</a></h2>
+					<aside class="notes">Because the generated is made by experienced developers, they applies good practices in code organisation and style programming (like the environment configuration on the server side using node).</aside>
 				</section>
 
+				<section>
+					<h2>Step-0</h2>
+				</section>
 				<!-- Generator installation -->
 				<section>
 					<h2><a href="https://github.com/DaftMonk/generator-angular-fullstack" target="_blank">Angular Full-Stack Generator</a></h2>
@@ -166,11 +175,6 @@ grunt serve
 				</section>
 				<!-- /Generator installation -->
 
-				<section>
-					<h2><a href="http://bit.ly/mean-no-generator" target="_blank">Mean Stack without generators</a></h2>
-					<aside class="notes">Because the generated is made by experienced developers, they applies good practices in code organisation and style programming (like the environment configuration on the server side using node).</aside>
-				</section>
-				
 				<!-- Node -->
 				<section>
 					<section>
@@ -219,12 +223,11 @@ grunt serve
 						<h2>http</h2>
 						<pre><code data-trim contenteditable>
 var http = require('http');
-var server = http.createServer(function (req, res) {
-<!-- To set the right header and status code, use the following: -->
+http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
-<!-- To output Hello World with the line end symbol, use -->
   res.end('Hello World\n');
-});
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
 						</code></pre>
 						<h2>Launch</h2>
 						<pre><code data-trim contenteditable>
@@ -236,7 +239,7 @@ node server
 					</section>
 					<!-- /http -->
 
-					<section>
+					<!-- <section>
 						<h2>Requiring files with Node</h2>
 						<p>In addition, for including files, it’s possible to use longer statements with __dirname and path.join()—for example,
 						<pre><code data-trim contenteditable>
@@ -245,7 +248,7 @@ require(path.join(__dirname, ,'routes', 'messages'));
 						<p>This is a recommended approach,because path.join() will produce a path with valid slashes (forward or backward depending on your OS).</p>
 						<p>If require() points to a folder, Node.js attempts to read the index.js file in that folder.</p>
 						<p>__dirname is an absolute path to the file in which the global variable is called, whereas process.cwd is an absolute path to the process that runs the script. The latter might not be the same as the former if we started the program from adifferentfolder,suchas$ node ./code/program.js.</p>
-					</section>
+					</section> -->
 					<!-- /requiring -->
 				</section>
 				<!-- /Node -->
@@ -283,6 +286,11 @@ node server
 					
 				</section>
 				<!-- /Express -->
+
+				<section>
+					<h2><a href="https://github.com/Yonet/oscars-2015/tree/step-1#oscars-2015" target="_blank"></a>Step-1</h2>
+
+				</section>
 
 
 

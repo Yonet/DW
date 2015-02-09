@@ -455,8 +455,20 @@ db.users.find() //to list all the users.
 					</section>
 
 					<section>
-						<h2>ng-model</h2>
-						
+
+						<h2>Built in directives</h2>
+						<ul>
+							<li>ngModel: Binding the view into the model.
+							</li>
+							<li>ngRepeat: instantiates a template once per item from a collection</li>
+
+
+						</ul>
+						<pre><code data-trim contenteditable>
+<input type="text" ng-model="userName"> //input value is bind to $scope.userName in the controller
+<div ng-repeat="(key, value) in myObj"> {{key}} - {{value.name}} </div>
+						</code></pre>
+
 
 					</section>
 

@@ -355,13 +355,14 @@ kitty.save(function (err) {
 					<section>
 						<h2>Model</h2>
 						<p>A Model is an object that gives you easy access to a named collection, allowing you to query the collection and use the Schema to validate any documents you save to that collection. It is created by combining a Schema, a Connection, and a collection name.</p>
-						<p>A document is an instantiation of a Model that is tied to a specific document in your collection.</p>
+						<!-- <p>A document is an instantiation of a Model that is tied to a specific document in your collection.</p> -->
 						<aside>A model is a class with which we construct documents. We can access all of the kitten documents through our Kitten model.</aside>
 					</section>
 
 					<section>
 					<pre><code data-trim contenteditable>
-var Mongoose = require('mongoose'), myConnection = Mongoose.createConnection('localhost', 'mydatabase');
+var Mongoose = require('mongoose');
+var myConnection = Mongoose.createConnection('localhost', 'mydatabase');
 
 var MySchema = new Mongoose.schema({ name : {
     type : String,
@@ -442,8 +443,29 @@ db.users.find() //to list all the users.
 					<section>
 						<h2>Angular</h2>
 					</section>
+
 					<section>
-						<h2><<a href="https://docs.angularjs.org/guide/services" target="_blank">Angular Services</a></h2>
+						<h2>Parts that makes an Angular application</h2>
+						<ul>
+							<li><a href="http://jsfiddle.net/yonet3d/50fpkazx/1/" target="_blank"></a>Controller</li>
+							<li><a href="http://jsfiddle.net/yonet3d/2pk4c2eo/2/" target="_blank"></a>Directives</li>
+							<li><a href="https://docs.angularjs.org/api/ng/directive" target="_blank"></a>Services</li>
+							<li><a href="https://docs.angularjs.org/api/ng/filter" target="_blank"></a>Filters</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>ng-model</h2>
+						
+
+					</section>
+
+					<section>
+						<h2></h2>
+					</section>
+
+					<section>
+						<h2><a href="https://docs.angularjs.org/guide/services" target="_blank">Angular Services</a></h2>
 						<p>By Angular conventions, lowerCamelCase is used for factory names that won't be new'ed.</p>
 						<pre><code data-trim contenteditable>
 yo angular-fullstack:factory nomineesFactory

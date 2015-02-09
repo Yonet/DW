@@ -288,7 +288,7 @@ node server
 				<!-- /Express -->
 
 				<section>
-					<h2><a href="https://github.com/Yonet/oscars-2015/tree/step-1#oscars-2015" target="_blank"></a>Step-1</h2>
+					<h2><a href="https://github.com/Yonet/oscars-2015/tree/step-1#oscars-2015" target="_blank">Step-1</a></h2>
 
 				</section>
 
@@ -473,7 +473,30 @@ db.users.find() //to list all the users.
 					</section>
 
 					<section>
-						<h2></h2>
+						<h2>Filters</h2>
+						<pre><code data-trim contenteditable>
+yo angular-fullstack:filter truncate
+						</code></pre>
+						<pre><code data-trim contenteditable>
+angular.module('oscarsApp')
+  .filter('truncate', function () {
+    return function (text, length, end) {
+      if (isNaN(length))
+                length = 10;
+
+            if (end === undefined)
+                end = "...";
+
+            if (text.length <= length || text.length - end.length <= length) {
+                return text;
+            }
+            else {
+                return String(text).substring(0, length-end.length) + end;
+            }
+
+        };
+  });
+  						</code></pre>
 					</section>
 
 					<section>
@@ -501,6 +524,7 @@ function($scope, nomineesFactory){
 )};
 						</code></pre>
 					</section>
+					<section><a href="https://github.com/Yonet/oscars-2015/tree/step-2#oscars-2015" target="_blank">Step-2</a></section>
 
 				</section>
 				<!-- Angular -->
